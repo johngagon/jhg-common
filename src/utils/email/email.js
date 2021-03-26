@@ -2,7 +2,7 @@ const Joi = require('joi');
 const convert = require('joi-to-json');
 const faker = require('faker');
 
-const schema = Joi.string().email().required();
+const schema = Joi.string().email({ tlds: {allow: false} }).required();
 
 const validate = (_email) => {
   const result = schema.validate(_email);
